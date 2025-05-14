@@ -48,8 +48,8 @@ class _MyAppState extends State<MyApp> {
           title: Text(
             'MY TODO',
             style: GoogleFonts.ubuntu(
-              fontWeight: FontWeight.bold, 
-              fontSize: 28
+                fontWeight: FontWeight.bold,
+                fontSize: 28
             ),
           ),
           centerTitle: true,
@@ -61,14 +61,14 @@ class _MyAppState extends State<MyApp> {
 
             itemBuilder:
                 (context, index) => TodoBody(
-                  task: (todoList[index][0].toString().isEmpty) 
-                  ? 'хмм.. Здесь пусто' 
+              task: (todoList[index][0].toString().isEmpty)
+                  ? 'хмм.. Здесь пусто'
                   : todoList[index][0],
 
-                  status: todoList[index][1],
-                  onChanged: (value) => todoChanged(index),
-                  delTodo: (value) => todoDel(index),
-                ),
+              status: todoList[index][1],
+              onChanged: (value) => todoChanged(index),
+              delTodo: (value) => todoDel(index),
+            ),
           ),
         ),
 
@@ -134,13 +134,13 @@ class TodoBody extends StatelessWidget {
 
       child: Slidable(
         endActionPane: ActionPane(
-          motion: StretchMotion(), 
-          children: [
-            SlidableAction(
-              onPressed: delTodo,
-              icon: Icons.delete,
+            motion: StretchMotion(),
+            children: [
+              SlidableAction(
+                onPressed: delTodo,
+                icon: Icons.delete,
               ),
-          ]
+            ]
         ),
 
         child: Container(
@@ -149,7 +149,7 @@ class TodoBody extends StatelessWidget {
             color: Colors.grey[800],
             borderRadius: BorderRadius.circular(10),
           ),
-        
+
           child: Row(
             children: [
               Checkbox(
@@ -161,16 +161,16 @@ class TodoBody extends StatelessWidget {
               ),
 
               Text(
-                task, 
-                style: GoogleFonts.rubik(
-                  color: Colors.white, 
-                  fontSize: 22,
+                  task,
+                  style: GoogleFonts.rubik(
+                      color: Colors.white,
+                      fontSize: 22,
 
-                  decoration: status 
-                  ? TextDecoration.lineThrough 
-                  : TextDecoration.none,
-                  decorationColor: Colors.white
-                )
+                      decoration: status
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none,
+                      decorationColor: Colors.white
+                  )
               ),
             ],
           ),
